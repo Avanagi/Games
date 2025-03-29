@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список игр</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/list.css">
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+<h2>Список игр</h2>
+
+<div class="switch">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch"></label>
+</div>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Размерность</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="matrix : ${matrices}">
+            <td th:text="${matrix.id}"></td>
+            <td th:text="${matrix.name}"></td>
+            <td th:text="${matrix.rows} + 'x' + ${matrix.columns}"></td>
+            <td>
+                <a th:href="@{'/matrices/' + ${matrix.id}}" class="btn small">Просмотр</a>
+                <form th:action="@{'/matrices/' + ${matrix.id} + '/delete'}" method="post" style="display:inline">
+                    <button type="submit" class="btn small danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="button-group">
+    <a href="/matrices/new" class="btn">Создать новую игру</a>
+</div>
+
+</body>
+</html>

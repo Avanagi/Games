@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Просмотр игры</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/view.css">
+  <script th:src="@{/js/main.js}" defer></script>
+</head>
+<body>
+
+<div class="switch">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch"></label>
+</div>
+
+<h2 th:text="'Игра: ' + ${matrix.name}"></h2>
+<p><strong>Размер:</strong> <span th:text="${matrix.rows}"></span> x <span th:text="${matrix.columns}"></span></p>
+
+<div>
+  <table class="players-guide">
+    <tr>
+      <td></td>
+      <td>Игрок 2</td>
+    </tr>
+    <tr>
+      <td>Игрок 1</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table class="matrix-table">
+    <tbody>
+    <tr th:each="row : ${matrixParsed}">
+      <td th:each="cell : ${row}">
+        (<span th:text="${cell[0]}"></span>, <span th:text="${cell[1]}"></span>)
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<a class="btn" th:href="@{/matrices}">Назад</a>
+
+</body>
+</html>

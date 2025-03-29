@@ -1,0 +1,46 @@
+.players-guide {
+    border-collapse: collapse;
+    margin: 0 auto 20px auto;
+    width: 50%;
+    text-align: center;
+}
+
+.players-guide td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f0f8ff;
+    font-weight: bold;
+}
+
+.matrix-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.matrix-table td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.matrix-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.matrix-table td:hover {
+    background-color: #e1f0ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.matrix-table td span {
+    font-weight: bold;
+    padding: 0 2px;
+}

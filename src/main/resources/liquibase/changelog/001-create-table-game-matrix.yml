@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-game-matrix
+      author: Avanagi
+      changes:
+        - createTable:
+            tableName: game_matrix
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rows
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: columns
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: matrix_data
+                  type: TEXT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

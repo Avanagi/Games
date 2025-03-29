@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Создать биматричную игру</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/form.js" defer></script>
+    <script src="/js/main.js" defer></script>
+</head>
+
+<body>
+
+<h2>Создать биматричную игру</h2>
+
+<div class="switch">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch"></label>
+</div>
+
+<form method="post" th:action="@{/matrices}" th:object="${matrix}">
+    <label>Название игры:
+        <input type="text" name="name" required>
+    </label>
+
+    <div class="size-inputs">
+        <label>Количество строк:
+            <input type="number" id="rows" min="1" value="3">
+        </label>
+        <label>Количество столбцов:
+            <input type="number" id="columns" min="1" value="3">
+        </label>
+    </div>
+
+    <div id="matrixContainer"></div>
+
+    <input type="hidden" name="rows" id="rowsField">
+    <input type="hidden" name="columns" id="columnsField">
+    <input type="hidden" name="matrixData" id="matrixDataField">
+
+    <div class="button-group">
+        <button type="button" id="generate" class="btn">Сгенерировать таблицу</button>
+        <button type="button" id="randomize" class="btn">Случайно заполнить</button>
+        <button type="submit" class="btn">Сохранить</button>
+    </div>
+</form>
+
+</body>
+</html>
