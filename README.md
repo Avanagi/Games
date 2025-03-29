@@ -42,7 +42,7 @@ Spring Boot + Thymeleaf + JS приложение для работы с бим�
 
 1. Склонировать репозиторий:
     ```bash
-    git clone https://github.com/your-username/bimatrix-game-solver.git
+    git clone [https://github.com/Avanagi/Games.git]
     cd bimatrix-game-solver
     ```
 
