@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/view.css">
   <script th:src="@{/js/main.js}" defer></script>
+  <script th:src="@{/js/view.js}" defer></script>
 </head>
 <body>
 
@@ -16,6 +17,14 @@
 
 <h2 th:text="'Игра: ' + ${matrix.name}"></h2>
 <p><strong>Размер:</strong> <span th:text="${matrix.rows}"></span> x <span th:text="${matrix.columns}"></span></p>
+
+<div class="player-select">
+  <label>Выберите игрока для расчета:</label>
+  <select id="player-select">
+    <option value="1">Игрок 1</option>
+    <option value="2">Игрок 2</option>
+  </select>
+</div>
 
 <div>
   <table class="players-guide">
@@ -38,6 +47,33 @@
     </tr>
     </tbody>
   </table>
+</div>
+
+<div class="button-group">
+  <form method="post" th:action="@{/matrices/{id}/solve(maximin) (id=${matrix.id})}">
+    <input type="hidden" name="player" id="maximin-player" value="1">
+    <button type="submit" class="btn">Максимин</button>
+  </form>
+
+  <form method="post" th:action="@{/matrices/{id}/solve(minimax) (id=${matrix.id})}">
+    <input type="hidden" name="player" id="minimax-player" value="1">
+    <button type="submit" class="btn">Минимакс</button>
+  </form>
+
+  <form method="post" th:action="@{/matrices/{id}/solve(saddle) (id=${matrix.id})}">
+    <button type="submit" class="btn">Седловая точка</button>
+  </form>
+
+  <form method="post" th:action="@{/matrices/{id}/solve(nash) (id=${matrix.id})}">
+    <button type="submit" class="btn">Равновесие по Нэшу в чистых</button>
+  </form>
+</div>
+
+<div id="process" th:if="${result}">
+  <h3>Процесс решения:</h3>
+  <div th:each="step : ${result.split('\n')}" class="process-step">
+    <p th:text="${step}"></p>
+  </div>
 </div>
 
 <a class="btn" th:href="@{/matrices}">Назад</a>
