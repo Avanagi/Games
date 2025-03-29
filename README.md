@@ -104,13 +104,6 @@ src
 
 ---
 
-## 🟣 Автор
-> Avanagi 2025
-
-Конечно! Вот дополнение для твоего `README.md` с разделом про Docker workflow:
-
----
-
 ## 💾 Работа с Docker
 
 ### 📦 Базовые команды
@@ -174,5 +167,9 @@ docker-compose exec db psql -U user games
 volumes:
   - postgres_data:/var/lib/postgresql/data
 ```
+
+## 🟣 Автор
+> Avanagi 2025
+
 
 ---
