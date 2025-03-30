@@ -50,6 +50,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.4.3'
 }
 
+bootJar {
+	archiveFileName = 'app.jar'
+}
+
 
 tasks.named('test') {
 	useJUnitPlatform()

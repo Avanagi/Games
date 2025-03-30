@@ -65,8 +65,14 @@
   </form>
 
   <form method="post" th:action="@{/matrices/{id}/solve(nash) (id=${matrix.id})}">
-    <button type="submit" class="btn">Равновесие по Нэшу в чистых</button>
+    <button type="submit" class="btn">Равновесие по Нэшу в чистых стратегиях</button>
   </form>
+
+  <form method="post" th:action="@{/matrices/{id}/solve(nashMixed) (id=${matrix.id})}"
+        th:if="${matrix.rows == 2 and matrix.columns == 2}">
+    <button type="submit" class="btn">Равновесие по Нэшу в смешанных стратегиях</button>
+  </form>
+
 </div>
 
 <div id="process" th:if="${result}">

@@ -89,4 +89,12 @@ public class GameMatrixController {
         ra.addAttribute("result", result);
         return "redirect:/matrices/{id}";
     }
+
+    @PostMapping("/{id}/solve(nashMixed)")
+    public String solveNashMixed(@PathVariable Long id, RedirectAttributes ra) {
+        String result = service.calculateNashEquilibriumMixed(id);
+        ra.addAttribute("result", result);
+        return "redirect:/matrices/{id}";
+    }
+
 }

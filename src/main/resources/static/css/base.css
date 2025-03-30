@@ -106,7 +106,7 @@ input:focus, button:focus {
 }
 
 body.dark-mode {
-    background-color: #121212;
+    background-color: #444444;
     color: #fff;
 }
 
