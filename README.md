@@ -44,23 +44,23 @@ Spring Boot + Thymeleaf + JS приложение для работы с бим�
 1. Склонировать репозиторий:
     ```bash
     git clone [https://github.com/Avanagi/Games.git]
-    cd bimatrix-game-solver
+    cd Games
     ```
 
 2. Настроить базу данных в `application.yml`:
     ```yaml
     spring:
       datasource:
-        url: jdbc:postgresql://localhost:5432/games
+        url: jdbc:postgresql://localhost:5432/Games
         username: postgres
-        password: your_password
+        password: root
       liquibase:
         enabled: true
     ```
 
 3. Собрать и запустить:
     ```bash
-    ./mvnw spring-boot:run
+    ./gradle spring-boot:run
     ```
 
 4. Открыть:
@@ -80,6 +80,7 @@ src
 ├── mapper             # Мапперы entity <-> dto
 ├── repository         # Репозитории Spring Data
 ├── service            # Игровая логика и сервисы
+├── utils              # Инструменты для помощи в реализации
 ├── resources
 │   ├── templates      # HTML (Thymeleaf)
 │   ├── static         # CSS, JS
